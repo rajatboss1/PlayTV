@@ -22,7 +22,7 @@
         padding: 0;
         background-color: var(--app-bg);
         color: #ffffff;
-        overflow: hidden; /* Prevent bounce on mobile */
+        overflow-x: hidden;
         -webkit-tap-highlight-color: transparent;
         user-select: none;
       }
@@ -60,6 +60,14 @@
       }
       .logo-pulse { animation: heartbeat 2s ease-in-out infinite; }
 
+      @keyframes slideUp {
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      .animate-slide-up {
+        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
       .active-indicator {
         width: 16px;
         height: 4px;
@@ -67,6 +75,13 @@
         background: #3b82f6;
         margin-top: 4px;
         box-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+      }
+
+      .safe-top {
+        padding-top: env(safe-area-inset-top);
+      }
+      .safe-bottom {
+        padding-bottom: env(safe-area-inset-bottom);
       }
       
       ::-webkit-scrollbar { display: none; }
