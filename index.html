@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Heart Beats - PlayTalk Original</title>
+    <meta name="theme-color" content="#020617">
+    <title>Heart Beats | PlayTalk</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
@@ -21,7 +22,7 @@
         padding: 0;
         background-color: var(--app-bg);
         color: #ffffff;
-        overflow-x: hidden;
+        overflow: hidden; /* Prevent bounce on mobile */
         -webkit-tap-highlight-color: transparent;
         user-select: none;
       }
@@ -32,64 +33,57 @@
           radial-gradient(at 0% 0%, hsla(220, 100%, 20%, 0.6) 0px, transparent 50%),
           radial-gradient(at 100% 0%, hsla(280, 100%, 20%, 0.6) 0px, transparent 50%),
           radial-gradient(at 50% 100%, hsla(250, 100%, 15%, 0.7) 0px, transparent 70%);
-        min-height: 100vh;
-        background-attachment: fixed;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
       }
 
       .glass-card {
         background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(25px) saturate(180%);
+        backdrop-filter: blur(20px) saturate(160%);
         border: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .glass-nav-bottom {
-        background: rgba(2, 6, 23, 0.85);
-        backdrop-filter: blur(40px) saturate(200%);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(2, 6, 23, 0.9);
+        backdrop-filter: blur(30px) saturate(180%);
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
       }
-
-      .safe-top { padding-top: env(safe-area-inset-top); }
-      .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
-
-      @keyframes slideUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-slide-up { animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
       @keyframes heartbeat {
-        0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0)); }
-        15% { transform: scale(1.08); filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.4)); }
-        30% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0)); }
-        45% { transform: scale(1.04); filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.2)); }
-        100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0)); }
+        0%, 100% { transform: scale(1); opacity: 0.9; }
+        15% { transform: scale(1.1); opacity: 1; }
+        30% { transform: scale(1); opacity: 0.9; }
       }
-      .logo-pulse { animation: heartbeat 2.5s ease-in-out infinite; }
+      .logo-pulse { animation: heartbeat 2s ease-in-out infinite; }
 
       .active-indicator {
-        width: 18px;
+        width: 16px;
         height: 4px;
         border-radius: 10px;
         background: #3b82f6;
         margin-top: 4px;
-        box-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
       }
       
-      .premium-text-shadow {
-        text-shadow: 0 4px 40px rgba(0,0,0,1);
-      }
-
       ::-webkit-scrollbar { display: none; }
+      
+      #root { height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; }
     </style>
     <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@19.0.0",
-        "react-dom": "https://esm.sh/react-dom@19.0.0",
-        "react-dom/client": "https://esm.sh/react-dom@19.0.0/client"
-      }
-    }
-    </script>
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
     <script type="module" src="./index.tsx"></script>
   </head>
   <body class="mobile-mesh-bg">
