@@ -4,19 +4,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <title>PlayTalk - Heart Beats</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Heart Beats - PlayTalk Original</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
       
+      :root {
+        --app-bg: #020617;
+      }
+
       body {
         font-family: 'Outfit', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #020617;
+        background-color: var(--app-bg);
         color: #ffffff;
         overflow-x: hidden;
         -webkit-tap-highlight-color: transparent;
+        user-select: none;
       }
 
       .mobile-mesh-bg {
@@ -37,8 +44,8 @@
 
       .glass-nav-bottom {
         background: rgba(2, 6, 23, 0.85);
-        backdrop-filter: blur(30px) saturate(200%);
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(40px) saturate(200%);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .safe-top { padding-top: env(safe-area-inset-top); }
@@ -50,34 +57,39 @@
       }
       .animate-slide-up { animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
+      @keyframes heartbeat {
+        0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0)); }
+        15% { transform: scale(1.08); filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.4)); }
+        30% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0)); }
+        45% { transform: scale(1.04); filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.2)); }
+        100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0)); }
+      }
+      .logo-pulse { animation: heartbeat 2.5s ease-in-out infinite; }
+
       .active-indicator {
-        width: 24px;
+        width: 18px;
         height: 4px;
-        border-radius: 2px;
+        border-radius: 10px;
         background: #3b82f6;
-        margin-top: 6px;
-        box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        margin-top: 4px;
+        box-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
       }
       
       .premium-text-shadow {
-        text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        text-shadow: 0 4px 40px rgba(0,0,0,1);
       }
 
-      iframe {
-        border-radius: 24px;
-      }
+      ::-webkit-scrollbar { display: none; }
     </style>
     <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@19.0.0",
-    "react-dom": "https://esm.sh/react-dom@19.0.0",
-    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
-  }
-}
-</script>
+    {
+      "imports": {
+        "react": "https://esm.sh/react@19.0.0",
+        "react-dom": "https://esm.sh/react-dom@19.0.0",
+        "react-dom/client": "https://esm.sh/react-dom@19.0.0/client"
+      }
+    }
+    </script>
     <script type="module" src="./index.tsx"></script>
   </head>
   <body class="mobile-mesh-bg">
