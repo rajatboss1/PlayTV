@@ -11,11 +11,12 @@ const App: React.FC = () => {
     id: 'heart-beats',
     title: 'Heart Beats',
     thumbnail: "https://lh3.googleusercontent.com/d/11oMmLSZFpeZsoGxw2uV_bPEWJB4-fvDx",
-    videoUrl: "https://drive.google.com/file/d/1qzLU2GjsA9KIBIHLQh_VmmT5rdHIM6Eu/preview",
+    // Converting YouTube Short URL to Embed URL for the iframe player
+    videoUrl: "https://www.youtube.com/embed/8VN_AlSt918?autoplay=1&rel=0&modestbranding=1&controls=0&showinfo=0",
     category: 'Interactive Romance',
     rating: '18+',
     episode: 'Episode 1: Fate',
-    description: 'In a world where choices define destiny, your pulse is the controller. Experience the revolutionary vertical series that follows the intertwined lives of three strangers in the neon-soaked streets of Neo-Tokyo.'
+    description: 'In a world where choices define destiny, your pulse is the controller. Experience the revolutionary vertical series that follows the intertwined lives of three strangers in the neon-soaked streets.'
   };
 
   const trendingList = [
@@ -81,10 +82,11 @@ const App: React.FC = () => {
                 </div>
               )}
               <iframe
-                src={`${story.videoUrl}?autoplay=1`}
+                src={story.videoUrl}
                 className="w-full h-full border-none"
-                allow="autoplay; fullscreen"
+                allow="autoplay; fullscreen; picture-in-picture"
                 onLoad={() => setVideoLoading(false)}
+                title="Heart Beats Episode 1"
               />
             </div>
           </div>
