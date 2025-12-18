@@ -6,87 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#020617">
-    <title>Heart Beats | PlayTalk</title>
+    <meta name="theme-color" content="#000000">
+    <title>plivetv | Immersive Stories</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
       
-      :root {
-        --app-bg: #020617;
-      }
-
       body {
         font-family: 'Outfit', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: var(--app-bg);
+        background-color: #000000;
         color: #ffffff;
         overflow-x: hidden;
         -webkit-tap-highlight-color: transparent;
         user-select: none;
       }
 
-      .mobile-mesh-bg {
-        background-color: #020617;
-        background-image: 
-          radial-gradient(at 0% 0%, hsla(220, 100%, 20%, 0.6) 0px, transparent 50%),
-          radial-gradient(at 100% 0%, hsla(280, 100%, 20%, 0.6) 0px, transparent 50%),
-          radial-gradient(at 50% 100%, hsla(250, 100%, 15%, 0.7) 0px, transparent 70%);
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: -1;
-      }
-
-      .glass-card {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(20px) saturate(160%);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .glass-nav-bottom {
-        background: rgba(2, 6, 23, 0.9);
-        backdrop-filter: blur(30px) saturate(180%);
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-      }
-
-      @keyframes heartbeat {
-        0%, 100% { transform: scale(1); opacity: 0.9; }
-        15% { transform: scale(1.1); opacity: 1; }
-        30% { transform: scale(1); opacity: 0.9; }
-      }
-      .logo-pulse { animation: heartbeat 2s ease-in-out infinite; }
-
       @keyframes slideUp {
-        from { transform: translateY(30px); opacity: 0; }
+        from { transform: translateY(20px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }
       }
       .animate-slide-up {
-        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
 
-      .active-indicator {
-        width: 16px;
-        height: 4px;
-        border-radius: 10px;
-        background: #3b82f6;
-        margin-top: 4px;
-        box-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
-      }
-
-      .safe-top {
-        padding-top: env(safe-area-inset-top);
-      }
-      .safe-bottom {
-        padding-bottom: env(safe-area-inset-bottom);
-      }
-      
       ::-webkit-scrollbar { display: none; }
-      
-      #root { height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+      #root { height: 100%; }
     </style>
     <script type="importmap">
 {
@@ -101,7 +47,7 @@
 </script>
     <script type="module" src="./index.tsx"></script>
   </head>
-  <body class="mobile-mesh-bg">
+  <body>
     <div id="root"></div>
   </body>
 </html>
